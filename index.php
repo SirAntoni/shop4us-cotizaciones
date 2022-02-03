@@ -1,1 +1,9 @@
-Hola Mundo v2
+<?php
+ob_start();
+session_start();
+if(isset($_SESSION['user'])){
+    header('Location:main?modulo=dashboard');
+}else{
+    header('Location:login');
+}
+?>

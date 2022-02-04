@@ -401,9 +401,6 @@ var get_cash_close = function() {
             $("#total_incomes").val(response.total_incomes);
             $("#total_expenses").val(response.total_expenses);
             $("#total_box").val(response.total_box);
-            $("#dashboard_box").html('<span style="font-size:16px">S/.</span>' + parseFloat(response.total_box).toFixed(2));
-            $("#dashboard_purchases").html('<span style="font-size:16px">$ </span>' + parseFloat(response.total_purchases).toFixed(2));
-            $("#dashboard_sales").html('<span style="font-size:16px">S/.</span>' + parseFloat(response.total_sales).toFixed(2));
 
         }
 

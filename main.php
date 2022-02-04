@@ -26,7 +26,7 @@ require "config/conexion.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DASHBOARD | Sistema Interno de control de stock | <?php echo date("Y"); ?></title>
+    <title>DASHBOARD | Sistema de cotizaciones | <?php echo date("Y"); ?></title>
     <!-- core:css -->
     <link rel="stylesheet" href="assets/vendors/core/core.css">
     <!-- endinject -->

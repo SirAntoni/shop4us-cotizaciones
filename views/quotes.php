@@ -1,13 +1,19 @@
-<?php  if($_SESSION['ventas'] == 1){ ?>
+<?php  if($_SESSION['cotizaciones'] == 1){ ?>
 <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
     <div>
-        <h4 class="mb-3 mb-md-0">Ventas</h4>
+        <h4 class="mb-3 mb-md-0">Cotizaciones</h4>
     </div>
     <div class="d-flex align-items-center flex-wrap text-nowrap">
-        <a href="main?module=add-sale" class="btn btn-primary btn-icon-text mb-2 mb-md-0 mr-2">
-            <i class="btn-icon-prepend mr-2" data-feather="shopping-cart"></i>
-            Realizar venta
-        </a>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary dropdown-toggle btn-icon-text mb-2 mb-md-0" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="btn-icon-prepend mr-2" data-feather="plus"></i> Crear
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="main?module=add-sale"><i data-feather="chevron-right" class="icon-dd"></i> Cotización Cargo</a>
+                <a class="dropdown-item" href="main?module=add-sale"><i data-feather="chevron-right" class="icon-dd"></i> Cotización Maleta</a>
+            </div>
+        </div>
     </div>
 </div>
 <!-- row -->
@@ -17,20 +23,22 @@
         <div class="card overflow-hidden">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="dataTableSales" class="table table-stripe table-hover table-bordered">
+                    <table id="dataTableQuotes" class="table table-stripe table-hover table-bordered">
                         <thead>
                             <tr>
-                            <th>id</th>
+                                <th>id</th>
+                                <th>Número</th>
                                 <th>Proveedor</th>
-                                <th>Usuario</th>
-                                <th>T. Comprobante</th>
-                                <th>Cliente</th>
-                                <th>N. Comprobante</th>
-                                <th>Fecha</th>
-                                <th>Impuesto</th>
-                                <th>Total</th>
-                                <th>Contacto</th>
-                                <th>Metodo Pago</th>
+                                <th>Producto</th>
+                                <th>Precio Producto</th>
+                                <th>Peso Producto</th>
+                                <th>Imp. Aduanas</th>
+                                <th>Precio Shop4us</th>
+                                <th>Comision Compra</th>
+                                <th>Total ($ )</th>
+                                <th>Total (S/. )</th>
+                                <th>Tipo de cambio</th>
+                                <th>Tipo</th>
                                 <th>Estado</th>
                                 <th>created_at</th>
                                 <th>updated_at</th>

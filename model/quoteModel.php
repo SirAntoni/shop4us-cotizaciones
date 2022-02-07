@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set("America/Lima");
-class Sales extends Conectar
+class Quotes extends Conectar
 {
     private $db;
 
@@ -9,8 +9,8 @@ class Sales extends Conectar
         $this->db = Conectar::conexion();
     }
 
-    public function get_sales(){
-        $sql = "SELECT s.id id, c.name name_client, u.name name_user, s.voucher_type voucher_type, s.voucher_serie voucher_serie, s.voucher_number voucher_number, s.date date, s.tax tax, s.sale_total sale_total,s.contact contact,s.payment_method payment_method, s.status status, s.created_at created_at, s.updated_at updated_at FROM sales s INNER JOIN users u ON u.id = s.user_id INNER JOIN clients c ON c.id = s.client_id";
+    public function get_quotes(){
+        $sql = "SELECT * FROM quotes";
         $sql = $this->db->prepare($sql);
         $sql->execute();
         return $sql->fetchAll(PDO::FETCH_ASSOC);

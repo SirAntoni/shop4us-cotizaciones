@@ -117,16 +117,16 @@ require "config/conexion.php";
                         require_once "views/providers.php";
                         break;
 
-                    case 'sales':
-                        require_once "views/sales.php";
+                    case 'quotes':
+                        require_once "views/quotes.php";
                         break;
 
-                    case 'add-sale':
-                        require_once "views/add-sale.php";
+                    case 'add-quote-charge':
+                        require_once "views/add-quote-charge.php";
                         break;
 
-                    case 'clients':
-                        require_once "views/clients.php";
+                    case 'add-quote-baggage':
+                        require_once "views/add-quote-baggage.php";
                         break;
                     
                     case 'users':

@@ -251,7 +251,7 @@ class Users extends Conectar
                         in_array(1,$values)?$_SESSION['caja']=1:$_SESSION['caja']=0;
                         in_array(2,$values)?$_SESSION['almacen']=1:$_SESSION['almacen']=0;
                         in_array(3,$values)?$_SESSION['compras']=1:$_SESSION['compras']=0;
-                        in_array(4,$values)?$_SESSION['ventas']=1:$_SESSION['ventas']=0;
+                        in_array(4,$values)?$_SESSION['cotizaciones']=1:$_SESSION['cotizaciones']=0;
                         in_array(5,$values)?$_SESSION['reportes']=1:$_SESSION['reportes']=0;
                         in_array(6,$values)?$_SESSION['usuarios']=1:$_SESSION['usuarios']=0;
                         in_array(7,$values)?$_SESSION['configuracion']=1:$_SESSION['configuracion']=0;

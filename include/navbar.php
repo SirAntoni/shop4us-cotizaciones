@@ -7,8 +7,8 @@
                     <span class="menu-title">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item mr-4 <?php echo ($_GET['module'] == 'dashboard') ? 'active':''; ?>">
-                <a class="nav-link " href="main?module=dashboard">
+            <li class="nav-item mr-4 <?php echo ($_GET['module'] == 'quotes') ? 'active':''; ?>">
+                <a class="nav-link " href="main?module=quotes">
                     <i class="link-icon" data-feather="clipboard"></i>
                     <span class="menu-title">Cotizaciones</span>
                 </a>

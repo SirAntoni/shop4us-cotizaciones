@@ -70,14 +70,13 @@ $(function() {
     select_voucher();
     get_voucher();
 
-    list_sales();
+    list_quotes();
     sale();
     delete_sale();
     get_cash_initial();
     get_cash_close();
     close_cash();
 
-    dashboard_cards();
     edit_price_article();
 
 
@@ -332,24 +331,6 @@ var edit_price_article = function() {
     })
 }
 
-var dashboard_cards = function() {
-
-    $.ajax({
-        url: "controller/dashboardController.php",
-        beforeSend: function() {
-            Notiflix.Loading.Pulse("Cargando datos...");
-        },
-        success: function(response) {
-            Notiflix.Loading.Remove();
-            var response = JSON.parse(response);
-            $("#dashboard_articles").html(response.articles);
-            $("#dashboard_clients").html(response.clients);
-            $("#dashboard_providers").html(response.providers);
-        }
-    })
-
-}
-
 var close_cash = function() {
 
     $("#formCloseBox").submit(function(e) {
@@ -527,8 +508,8 @@ var delete_sale = function() {
 
 }
 
-var list_sales = function() {
-    var table_sales = $("#dataTableSales").DataTable({
+var list_quotes = function() {
+    var table_quotes = $("#dataTableQuotes").DataTable({
         buttons: ["pdf"],
         aLengthMenu: [
             [10, 30, 50, -1],
@@ -538,49 +519,35 @@ var list_sales = function() {
         destroy: true,
         iDisplayLength: 30,
         ajax: {
-            url: "controller/saleController.php",
+            url: "controller/quoteController.php",
             method: "POST",
         },
         aoColumnDefs: [
-            { bSearchable: false, bVisible: false, aTargets: [1] },
             { bSearchable: false, bVisible: false, aTargets: [2] },
-            { bSearchable: false, bVisible: false, aTargets: [3] },
+            { bSearchable: false, bVisible: false, aTargets: [6] },
             { bSearchable: false, bVisible: false, aTargets: [7] },
-            { bSearchable: false, bVisible: false, aTargets: [12] },
-            { bSearchable: false, bVisible: false, aTargets: [13] }
+            { bSearchable: false, bVisible: false, aTargets: [8] },
+            { bSearchable: false, bVisible: false, aTargets: [9] },
+            { bSearchable: false, bVisible: false, aTargets: [10] },
+            { bSearchable: false, bVisible: false, aTargets: [11] },
+            { bSearchable: false, bVisible: false, aTargets: [14] },
+            { bSearchable: false, bVisible: false, aTargets: [15] }
         ],
         columns: [
             { data: "id" },
-            { data: "name_client" },
-            { data: "name_user" },
-            { data: "voucher_type" },
-            { data: "name_client" },
-            { data: "voucher_number" },
-            { data: "date" },
-            {
-                data: "tax",
-                render: function(data) {
-                    return "S/. " + data;
-                }
-            },
-            {
-                data: "sale_total",
-                render: function(data) {
-                    return "S/. " + data;
-                }
-            },
-            { data: "contact" },
-            { data: "payment_method" },
-            {
-                data: "status",
-                render: function(data) {
-                    if (data == 0) {
-                        return "<center><span class='badge badge-success'>Aceptado</span></center>";
-                    } else {
-                        return "<center><span class='badge badge-danger'>No Aceptado</span></center>";
-                    }
-                }
-            },
+            { data: "number" },
+            { data: "provider" },
+            { data: "product" },
+            { data: "price_product" },
+            { data: "weight_product" },
+            { data: "tax_aduanas" },
+            { data: "price_home" },
+            { data: "commission" },
+            { data: "total_soles" },
+            { data: "total_dolares" },
+            { data: "exchange_rate" },
+            { data: "type" },
+            { data: "status" },
             { data: "created_at" },
             { data: "updated_at" },
             {
@@ -591,11 +558,11 @@ var list_sales = function() {
         language: esp,
     });
 
-    data_print_sale("#dataTableSales tbody", table_sales);
-    data_view_sale("#dataTableSales tbody", table_sales);
-    data_delete_sale("#dataTableSales tbody", table_sales);
+    /* data_print_sale("#dataTableSales tbody", table_sales);
+     data_view_sale("#dataTableSales tbody", table_sales);
+     data_delete_sale("#dataTableSales tbody", table_sales); */
 
-    $("#dataTableSales").each(function() {
+    $("#dataTableQuotes").each(function() {
         var datatable = $(this);
         // SEARCH - Add the placeholder for Search and Turn this into in-line form control
         var search_input = datatable
@@ -612,40 +579,7 @@ var list_sales = function() {
 
 };
 
-var data_view_sale = function(tbody, table) {
-    $(tbody).on("click", ".view", function() {
-        var data = table.row($(this).parents("tr")).data();
-        $.ajax({
-            url: "controller/saleController.php",
-            method: "POST",
-            data: "sale_id=" + data.id + "&option=viewDetails",
-            beforeSend: function() {
-                Notiflix.Loading.Pulse("Procesando...");
-            },
-            success: function(response) {
-                Notiflix.Loading.Remove();
-                $("#viewDetail").html(response);
-            }
-        })
 
-        $("#modalViewDetails").modal('show');
-    })
-}
-
-var data_print_sale = function(tbody, table) {
-    $(tbody).on("click", ".print", function() {
-        var data = table.row($(this).parents("tr")).data();
-        window.open('invoices/invoice?id=' + data.id, '_blank');
-    })
-}
-
-var data_delete_sale = function(tbody, table) {
-    $(tbody).on("click", ".delete", function() {
-        var data = table.row($(this).parents("tr")).data();
-        $(".id").val(data.id);
-        $("#modalDeleteSales").modal("show");
-    })
-}
 
 var get_voucher = function() {
 
@@ -823,7 +757,6 @@ var delete_voucher = function() {
     })
 
 }
-
 var list_vouchers = function() {
     var table_vouchers = $("#dataTableVouchers").DataTable({
         buttons: ["pdf"],

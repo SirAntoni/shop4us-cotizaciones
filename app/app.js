@@ -546,8 +546,28 @@ var list_quotes = function() {
             { data: "total_soles" },
             { data: "total_dolares" },
             { data: "exchange_rate" },
-            { data: "type" },
-            { data: "status" },
+            {
+                data: "type",
+                render: function(data) {
+                    if (data == 0) {
+                        return "Cargo";
+                    } else {
+                        return "Maleta";
+                    }
+                }
+            },
+            {
+                data: "status",
+                render: function(data) {
+                    if (data == 0) {
+                        return "<center><span class='badge badge-primary'>Pendiente</span></center>";
+                    } else if (data == 1) {
+                        return "<center><span class='badge badge-success'>Aceptado</span></center>";
+                    } else if (data == 2) {
+                        return "<center><span class='badge badge-danger'>No Aceptado</span></center>";
+                    }
+                }
+            },
             { data: "created_at" },
             { data: "updated_at" },
             {

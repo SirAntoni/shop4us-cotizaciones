@@ -14,8 +14,8 @@
                 <i class="btn-icon-prepend mr-2" data-feather="grid"></i> Accesos directos
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="main?module=add-sale"><i data-feather="chevron-right" class="icon-dd"></i> Crear Cotización Cargo</a>
-                <a class="dropdown-item" href="main?module=add-sale"><i data-feather="chevron-right" class="icon-dd"></i> Crear Cotización Maleta</a>
+                <a class="dropdown-item" href="main?module=add-quote-charge"><i data-feather="chevron-right" class="icon-dd"></i> Crear Cotización Cargo</a>
+                <a class="dropdown-item" href="main?module=add-quote-baggage"><i data-feather="chevron-right" class="icon-dd"></i> Crear Cotización Maleta</a>
             </div>
         </div>
     </div>

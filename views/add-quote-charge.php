@@ -1,12 +1,12 @@
-<?php  if($_SESSION['ventas'] == 1){ ?>
+<?php  if($_SESSION['cotizaciones'] == 1){ ?>
 <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
     <div>
-        <h4 class="mb-3 mb-md-0">Nueva venta</h4>
+        <h4 class="mb-3 mb-md-0">Nueva cotización cargo</h4>
     </div>
     <div class="d-flex align-items-center flex-wrap text-nowrap">
-        <a href="main?module=sales" class="btn btn-primary btn-icon-text mb-2 mb-md-0 mr-2">
+        <a href="main?module=quotes" class="btn btn-primary btn-icon-text mb-2 mb-md-0 mr-2">
             <i class="btn-icon-prepend mr-2" data-feather="arrow-left-circle"></i>
-            Ir a ventas
+            Ir a cotizaciones
         </a>
         <button type="button" data-toggle="modal" data-target="#modalAddNewArticles"
             class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0 mr-2"><i class="btn-icon-prepend mr-2"
